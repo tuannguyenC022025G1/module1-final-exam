@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra phân số bằng nhau</title>
+  </head>
+<body>
+<h1>Kiểm tra phân số có bằng nhau không</h1>
+
+<label for="num1">Tử số phân số 1:</label>
+<input type="number" id="num1">
+<label for="denom1">Mẫu số phân số 1:</label>
+<input type="number" id="denom1">
+<br><br>
+
+<label for="num2">Tử số phân số 2:</label>
+<input type="number" id="num2">
+<label for="denom2">Mẫu số phân số 2:</label>
+<input type="number" id="denom2">
+<br><br>
+
+<button onclick="checkFractions()">Kiểm tra</button>
+
+<p id="result"></p>
+<script>
+  function gcd(a, b) {
+    while (b !== 0) {
+      let temp = b;
+      b = a % b;
+      a = temp;
+    }
+    return a;
+  }
+
+  function areFractionsEqual(num1, denom1, num2, denom2) {
+    let gcd1 = gcd(num1, denom1);
+    num1 = num1 / gcd1;
+    denom1 = denom1 / gcd1;
+
+    let gcd2 = gcd(num2, denom2);
+    num2 = num2 / gcd2;
+    denom2 = denom2 / gcd2;
+
+    return num1 === num2 && denom1 === denom2;
+  }
+
+  function checkFractions() {
+    let num1 = parseInt(document.getElementById('num1').value);
+    let denom1 = parseInt(document.getElementById('denom1').value);
+    let num2 = parseInt(document.getElementById('num2').value);
+    let denom2 = parseInt(document.getElementById('denom2').value);
+
+    let result = areFractionsEqual(num1, denom1, num2, denom2);
+
+    if (result) {
+      document.getElementById('result').innerText = "Hai phân số bằng nhau.";
+    } else {
+      document.getElementById('result').innerText = "Hai phân số không bằng nhau.";
+    }
+  }
+</script>
+</body>
+</html>

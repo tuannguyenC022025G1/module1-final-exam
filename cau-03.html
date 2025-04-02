@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 3</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: inline-block;
+      width: 150px;
+    }
+    input, button {
+      padding: 5px;
+      margin: 5px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>Quản lý Sổ Tiết Kiệm</h2>
+  <div class="form-group">
+    <label for="maSo">Mã sổ (tối đa 5 ký tự):</label>
+    <input type="text" id="maSo" maxlength="5">
+  </div>
+  <div class="form-group">
+    <label for="loaiTietKiem">Loại tiết kiệm (tối đa 10 ký tự):</label>
+    <input type="text" id="loaiTietKiem" maxlength="10">
+  </div>
+  <div class="form-group">
+    <label for="hoTen">Họ tên (tối đa 30 ký tự):</label>
+    <input type="text" id="hoTen" maxlength="30">
+  </div>
+  <div class="form-group">
+    <label for="cmnd">CMND:</label>
+    <input type="number" id="cmnd">
+  </div>
+  <div class="form-group">
+    <label for="ngayMoSo">Ngày mở sổ (dd/mm/yyyy):</label>
+    <input type="text" id="ngayMoSo" placeholder="dd/mm/yyyy">
+  </div>
+  <div class="form-group">
+    <label for="soTienGui">Số tiền gửi:</label>
+    <input type="number" id="soTienGui" min="0">
+  </div>
+  <button onclick="themSoTietKiem()">Thêm Sổ Tiết Kiệm</button>
+  <button onclick="kiemTraMaSo()">Kiểm Tra Mã Sổ</button>
+  <div id="error" class="error"></div>
+
+  <h3>Danh sách Sổ Tiết Kiệm</h3>
+  <table id="danhSachSo">
+    <thead>
+    <tr>
+      <th>Mã Sổ</th>
+      <th>Loại Tiết Kiệm</th>
+      <th>Họ Tên</th>
+      <th>CMND</th>
+      <th>Ngày Mở Sổ</th>
+      <th>Số Tiền Gửi</th>
+      <th>Hành Động</th>
+    </tr>
+    </thead>
+    <tbody id="danhSachSoBody"></tbody>
+  </table>
+</div>
+
+<script src="cau-03.js"></script>
+</body>
+</html>
